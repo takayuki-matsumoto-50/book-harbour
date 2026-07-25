@@ -1,5 +1,6 @@
 # ⚓ BOOK HARBOUR
-
+> 🚧 This project is currently under active development.
+> This repository is a personal learning project and experimental prototype.
 > Every book deserves a safe harbour.
 > （すべての本に、帰る港を。）
 
