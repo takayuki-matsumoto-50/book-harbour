@@ -7,6 +7,7 @@
     <title>BOOK HARBOUR</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 
 <body>
@@ -25,9 +26,11 @@
         新しい航海が始まります。
     </p>
 
-    <button class="main-button">
-        📷 本を停泊させる
-    </button>
+<button class="main-button" onclick="startScanner()">
+    📷 本を停泊させる
+</button>
+
+<div id="reader"></div>
 
     <button>
         📚 私の港を見る
