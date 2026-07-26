@@ -1,3 +1,5 @@
+alert("book.js が動いています");
+
 const params = new URLSearchParams(location.search);
 
 const isbn = params.get("isbn");
