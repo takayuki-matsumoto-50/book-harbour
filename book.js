@@ -73,6 +73,43 @@ async function loadBook(isbn){
 
 function saveBook(){
 
-    alert("Version0.4で実装予定です😊");
+    // LocalStorageから取得
+    let books = JSON.parse(localStorage.getItem("books"));
+
+    if(books == null){
+        books = [];
+    }
+
+    // 重複チェック
+    const exists = books.find(book => book.isbn === isbn);
+
+    if(exists){
+        alert("この本は既に停泊しています。");
+        return;
+    }
+
+    // 保存データ
+    books.push({
+
+        isbn: isbn,
+
+        title: document.querySelector("h2").innerText,
+
+        author: document.querySelectorAll("p")[1].innerText,
+
+        publisher: document.querySelectorAll("p")[3].innerText,
+
+        cover: document.querySelector(".cover").src
+
+    });
+
+    localStorage.setItem(
+        "books",
+        JSON.stringify(books)
+    );
+
+    alert("⚓ 港へ停泊しました！");
+
+    location.href="index.html";
 
 }
