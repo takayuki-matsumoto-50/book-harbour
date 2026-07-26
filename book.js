@@ -1,7 +1,4 @@
-alert("book.js が動いています");
-
 const params = new URLSearchParams(location.search);
-
 const isbn = params.get("isbn");
 
 loadBook(isbn);
@@ -15,69 +12,44 @@ async function loadBook(isbn){
     try{
 
         const response = await fetch(
-            `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
+            `https://api.openbd.jp/v1/get?isbn=${isbn}`
         );
 
         const data = await response.json();
 
-        if(data.totalItems === 0){
+        if(data[0] == null){
 
             area.innerHTML = `
-                <h3>見つかりませんでした</h3>
-
-                <p>ISBN</p>
-
-                <p>${isbn}</p>
+                <h2>本が見つかりませんでした</h2>
+                <p>ISBN : ${isbn}</p>
             `;
-
             return;
         }
 
-        const book = data.items[0].volumeInfo;
+        const summary = data[0].summary;
 
-        const title =
-            book.title ?? "タイトル不明";
-
-        const authors =
-            book.authors ?
-            book.authors.join("、") :
-            "不明";
-
-        const publisher =
-            book.publisher ?? "不明";
-
-        const publishedDate =
-            book.publishedDate ?? "";
-
-        const description =
-            book.description ?? "";
-
-        const image =
-            book.imageLinks ?
-            book.imageLinks.thumbnail :
-            "";
+        const title = summary.title;
+        const author = summary.author;
+        const publisher = summary.publisher;
+        const cover = summary.cover;
+        const pubdate = summary.pubdate;
 
         area.innerHTML = `
 
-        <img class="cover" src="${image}">
+        <img class="cover" src="${cover}" alt="表紙">
 
         <h2>${title}</h2>
 
         <p><b>著者</b></p>
-
-        <p>${authors}</p>
+        <p>${author}</p>
 
         <p><b>出版社</b></p>
-
         <p>${publisher}</p>
 
         <p><b>出版日</b></p>
-
-        <p>${publishedDate}</p>
+        <p>${pubdate}</p>
 
         <hr>
-
-        <p>${description}</p>
 
         <button onclick="saveBook()">
             ⚓ この本を港へ停泊させる
@@ -86,19 +58,21 @@ async function loadBook(isbn){
         `;
 
     }
-    catch{
+    catch(error){
+
+        console.error(error);
 
         area.innerHTML = `
-            <h3>通信エラー</h3>
-
-            <p>Google Books APIへ接続できませんでした。</p>
+            <h2>通信エラー</h2>
+            <p>${error}</p>
         `;
+
     }
 
 }
 
 function saveBook(){
 
-    alert("次回実装します😊");
+    alert("Version0.4で実装予定です😊");
 
 }
