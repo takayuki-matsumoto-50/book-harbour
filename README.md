@@ -1,110 +1,68 @@
 # ⚓ BOOK HARBOUR
-> 🚧 This project is currently under active development.
-> This repository is a personal learning project and experimental prototype.
+
 > Every book deserves a safe harbour.
 > （すべての本に、帰る港を。）
 
+## 概要
+
 BOOK HARBOUR は、本を一隻のヨットに見立て、
-読書を「航海」として楽しみ、記録するためのWebアプリです。
-
-私は長年ヨットを楽しんできました。
-
-ヨットハーバーには、
-出航を待つ艇、
-航海から帰ってきた艇、
-整備中の艇が静かに並んでいます。
-
-私にとって本も同じ存在です。
-
-まだ読んでいない本。
-今まさに読んでいる本。
-人生に影響を与え、読み終えた本。
-
-それらは私の人生という海を共に旅するヨットです。
-
-BOOK HARBOUR は、
-そんな本たちが集う港をイメージして作っています。
-
----
-
-# プロジェクトの目的
+読書を「航海」として楽しみ、記録するWebアプリです。
 
 このプロジェクトには二つの目的があります。
 
-## ① 自分が本当に使いたい読書アプリを作ること
+1. 自分が本当に使いたい読書アプリを作ること
+2. AI駆動開発を学ぶこと
 
-本棚管理ではなく、
+完成を急ぐのではなく、
 
-「読書体験を豊かにする港」
+設計
+↓
 
-を目指します。
+試作品
+↓
 
-## ② AI駆動開発を体験すること
+体験
+↓
 
-会社でAI駆動開発の流れが進む中、
+改善
 
-ChatGPTと対話しながら
-
-・設計する
-
-・試作品を作る
-
-・改善する
-
-という開発スタイルを学ぶことも、このプロジェクトの目的です。
+というサイクルで育てていきます。
 
 ---
 
-# 現在の機能
+# GitHub Repository
 
-- GitHub Pagesで公開
-- レスポンシブ対応トップページ
-- BOOK HARBOURデザイン
+https://github.com/takayuki-matsumoto-50/book-harbour
 
----
+GitHub Pages
 
-# 今後のロードマップ
-
-## Version 0.3
-- バーコード読取
-- ISBN取得
-
-## Version 0.4
-- Google Books API連携
-- タイトル取得
-- 表紙取得
-
-## Version 0.5
-- 本棚登録
-- ステータス管理
-
-## Version 0.6
-- 読書ログ（航海日誌）
-
-## Version 0.7
-- AIによる書籍紹介
-- 関連本表示
-- 読書ガイド
-
-## Version 1.0
-BOOK HARBOUR 公開版
+https://takayuki-matsumoto-50.github.io/book-harbour/
 
 ---
 
-# 開発メモ
+# Project Documents
 
-このプロジェクトは、
+このプロジェクトには次の設計書があります。
 
-「完成させること」
+- VISION.md
+- ROADMAP.md
+- SPEC.md
+- CHANGELOG.md
+- AI_CONTEXT.md
 
-よりも、
+---
 
-「AIと一緒に育てること」
+# AIへのお願い
 
-を大切にしています。
+このプロジェクトを引き継ぐ場合は、
 
-アイデアを言葉にし、
-AIと試作品を作り、
-実際に使って改善していく。
+まずREADME.mdを読み、
+必要に応じて他の設計書も確認してください。
 
-その過程そのものが、このプロジェクトの価値です。
+もしGitHub上のファイルを確認できない場合は、
+推測で回答せず、その旨を伝えてください。
+
+必要であれば、
+READMEや設計書の内容をユーザーに貼り付けてもらってください。
+
+設計を理解した上で提案してください。
