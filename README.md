@@ -66,3 +66,7 @@ https://takayuki-matsumoto-50.github.io/book-harbour/
 READMEや設計書の内容をユーザーに貼り付けてもらってください。
 
 設計を理解した上で提案してください。
+
+## Test
+
+VS Codeから初めて更新しました。
