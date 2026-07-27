@@ -1,12 +1,6 @@
-let scanner;
+window.onload = function () {
 
-function startScanner() {
-
-    if (scanner) {
-        return;
-    }
-
-    scanner = new Html5Qrcode("reader");
+    const scanner = new Html5Qrcode("reader");
 
     scanner.start(
         { facingMode: "environment" },
@@ -17,17 +11,12 @@ function startScanner() {
         function(decodedText){
 
             scanner.stop().then(() => {
-                location.href = "book.html?isbn=" + decodedText;
+                location.href =
+                    "book.html?isbn=" + decodedText;
             });
 
         },
         function(error){}
-    ).catch(err => {
+    );
 
-        alert("カメラを起動できませんでした。\n" + err);
-
-        scanner = null;
-
-    });
-
-}
+};
