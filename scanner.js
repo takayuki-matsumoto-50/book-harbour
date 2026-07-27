@@ -1,23 +1,34 @@
-window.onload = function () {
+window.onload = async function () {
 
-    const scanner = new Html5Qrcode("reader");
+    const cameras = await Html5Qrcode.getCameras();
 
-    scanner.start(
-        { facingMode: "environment" },
-        {
-            fps: 10,
-            qrbox: 250
-        },
-        function (decodedText) {
+    if (cameras && cameras.length > 0) {
 
-            scanner.stop().then(() => {
-                location.href = "book.html?isbn=" + decodedText;
-            });
+        let cameraId = cameras[cameras.length - 1].id;
 
-        },
-        function (error) {
-            // 読み取り失敗時は何もしない
-        }
-    );
+        const scanner = new Html5Qrcode("reader");
+
+        scanner.start(
+            cameraId,
+            {
+                fps: 10,
+                qrbox: 250
+            },
+            function(decodedText){
+
+                scanner.stop().then(() => {
+                    location.href =
+                        "book.html?isbn=" + decodedText;
+                });
+
+            },
+            function(error){}
+        );
+
+    } else {
+
+        alert("カメラが見つかりません。");
+
+    }
 
 };
