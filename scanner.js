@@ -1,22 +1,30 @@
-window.onload = function () {
+window.onload = async function () {
 
-    const scanner = new Html5Qrcode("reader");
+    try {
 
-    scanner.start(
-        { facingMode: "environment" },
-        {
-            fps: 10,
-            qrbox: 250
-        },
-        function(decodedText){
+        const scanner = new Html5Qrcode("reader");
 
-            scanner.stop().then(() => {
-                location.href =
-                    "book.html?isbn=" + decodedText;
-            });
+        await scanner.start(
+            { facingMode: "environment" },
+            {
+                fps: 10,
+                qrbox: 250
+            },
+            function(decodedText){
 
-        },
-        function(error){}
-    );
+                scanner.stop().then(() => {
+                    location.href =
+                        "book.html?isbn=" + decodedText;
+                });
+
+            },
+            function(error){}
+        );
+
+    } catch(e){
+
+        alert("エラー:\n\n" + e);
+
+    }
 
 };
